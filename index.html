@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://kit.fontawesome.com/506f2d6903.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Weather App Gio</title>
+  </head>
+
+  <body>
+    <div class="Container project">
+      <div class="row">
+        <div class="col-3 card left-card">
+          <form id="city-form">
+            <div class="row">
+              <div class="col-8">
+                <input
+                  type="text"
+                  placeholder="Enter a City..."
+                  id="city-input"
+                />
+              </div>
+              <div class="col-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+              </div>
+            </div>
+          </form>
+
+          <hr />
+
+          <h1 id="country">Berlin</h1>
+          <h3>Today</h3>
+
+          <img
+            src="images/partly-cloudy-day.png"
+            alt="partly cloudy day"
+            width="150"
+          />
+
+          <br />
+
+          <div class="float-left">
+            <span class="temperature" id="temperature">12</span>
+            <span>
+              <a href="#" id="celsius-link">°C</a> |
+              <a href="#" id="fahrenheit-link">°F</a>
+            </span>
+
+            <br />
+
+            <ul>
+              <li class="day" id="current-day">Thursday</li>
+              <li id="current-hour">20:20</li>
+              <li>few clowds</li>
+            </ul>
+            <ul>
+              <li>Precipitation: 0%</li>
+              <li>Humidity: "80%"</li>
+              <li>Wind: "3.13 km/h"</li>
+            </ul>
+            <br />
+          </div>
+
+          <h3>Remember to take your umbrella!</h3>
+        </div>
+
+        <div class="col-8 card left-card">
+          <h3>Week</h3>
+
+          <div class="card-group">
+            <div class="card">
+              <div class="card-header"><strong>Friday</strong></div>
+              <div class="card-body">
+                <p class="card-text">Temperature</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header"><strong>Saturday</strong></div>
+              <div class="card-body">
+                <p class="card-text">Temperature</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header"><strong>Sunday</strong></div>
+              <div class="card-body">
+                <p class="card-text">Temperature</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header"><strong>Monday</strong></div>
+              <div class="card-body">
+                <p class="card-text">Temperature</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header"><strong>Tuesday</strong></div>
+              <div class="card-body">
+                <p class="card-text">Temperature</p>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <h3>Day</h3>
+          </div>
+        </div>
+
+        <footer>This project was coded by <strong>Gio Lamadrid</strong></footer>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>

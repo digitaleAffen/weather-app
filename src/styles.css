@@ -1,0 +1,63 @@
+body {
+  color: #7c7c7c;
+  font-family: "Roboto", sans-serif;
+}
+
+.project {
+  border: 1px solid;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 5px 5px;
+  display: block 0;
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+}
+
+.left-card {
+  padding: 12px;
+}
+
+.temperature {
+  font-size: 48px;
+  line-height: 28px;
+}
+
+.day {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 28px;
+}
+
+h3 {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+img {
+  /* border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 5px 5px;
+  padding: 15px; */
+}
+
+ul {
+  font-size: 14px;
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  box-sizing: inherit;
+}
+
+li {
+  display: inline;
+  margin: 0;
+  font-size: 16px;
+  padding: 0;
+}
+
+footer {
+  padding: 15px;
+  text-align: center;
+}
