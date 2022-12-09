@@ -12,9 +12,22 @@ body {
   max-width: 600px;
 }
 
+.today-temperature .active {
+  color: #878787;
+  cursor: default;
+}
+
+today.temperature .active:hover {
+  text-decoration: none;
+}
+
 .temperature {
   font-size: 48px;
   line-height: 1;
+}
+
+.temperature .active:hover {
+  text-decoration: none;
 }
 
 .day {
@@ -24,6 +37,7 @@ body {
 .units {
   position: relative;
   top: -22px;
+  text-decoration: none;
 }
 
 h1 {
@@ -36,7 +50,7 @@ h1 {
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 28px;
   margin-bottom: 0;
 }

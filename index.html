@@ -65,37 +65,38 @@
         </form>
 
         <h1 id="city">Bogota</h1>
-
         <h3>Today</h3>
+        <img src="" alt="cloudy day" width="100" class="float-left" id="icon" />
 
-        <img
-          src="images/partly-cloudy-day.png"
-          alt="partly cloudy day"
-          width="150"
-          id="icon"
-        />
+        <div class="row">
+          <div class="col-3">
+            <div class="today-temperature">
+              <span class="temperature" id="temperature"></span>
 
-        <div>
-          <span class="temperature" id="temperature"></span>
-          <span class="units">
-            <a href="#" id="celsius-link">°C</a> |
-            <a href="#" id="fahrenheit-link">°F</a>
-          </span>
+              <span class="units">
+                <a href="#" id="celsius-link" class="active">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a>
+              </span>
 
-          <br />
+              <br />
+            </div>
+          </div>
+          <div class="col-3">
+            <ul>
+              <li class="day" id="current-day">Thursday</li>
+              <li id="current-hour">20:20</li>
+              <li id="description"></li>
+            </ul>
+          </div>
 
-          <ul>
-            <li class="day" id="current-day">Thursday</li>
-            <li id="current-hour">20:20</li>
-            <li id="description"></li>
-          </ul>
-          <ul>
-            <li>Precipitation: 0%</li>
-            <li id="humidity"></li>
-            <li id="wind"></li>
-          </ul>
+          <div class="col-3">
+            <ul>
+              <li>Precipitation: 0%</li>
+              <li id="humidity"></li>
+              <li id="wind"></li>
+            </ul>
+          </div>
         </div>
-
         <h3>Remember to take your umbrella!</h3>
       </div>
       <div class="card">
