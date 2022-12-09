@@ -16,6 +16,14 @@ function displayTemperature(response) {
 
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
+
+  // icon
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey = "47197b56a0c0163cd5fa08701bd89102";
@@ -28,11 +36,10 @@ console.log(apiUrl);
 
 axios.get(apiUrl).then(displayTemperature);
 
-// Change the Day and Hour to the current one
+// Local Day and Hour
 let currentDate = new Date();
-6;
 
-//Day
+// Local Day
 
 function formatDay(currentDate) {
   let days = [
@@ -53,7 +60,7 @@ function formatDay(currentDate) {
 let formattedDay = document.querySelector("#current-day");
 formattedDay.innerHTML = formatDay(currentDate);
 
-// Hour
+// Local Hour
 
 function formatHour(currentDate) {
   let currentHour = currentDate.getHours();
@@ -80,7 +87,7 @@ function searchButton(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
 
-  let h1 = document.querySelector("#country");
+  let h1 = document.querySelector("#city");
   if (cityInput.value) {
     h1.innerHTML = `${cityInput.value}`;
   } else {
