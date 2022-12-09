@@ -26,15 +26,35 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "47197b56a0c0163cd5fa08701bd89102";
-let city = "berlin";
-let units = "metric";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-//https://api.openweathermap.org/data/2.5/weather?q=&appid=47197b56a0c0163cd5fa08701bd89102&lat=52.5139968&lon=13.4709248
+// Change the city
 
-console.log(apiUrl);
+function searchSubmited(city) {
+  let apiKey = "47197b56a0c0163cd5fa08701bd89102";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  //https://api.openweathermap.org/data/2.5/weather?q=&appid=47197b56a0c0163cd5fa08701bd89102&lat=52.5139968&lon=13.4709248
 
-axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+searchSubmited("Berlin");
+
+function searchButton(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-input");
+  searchSubmited(cityInput.value);
+
+  let h1 = document.querySelector("#city");
+  if (cityInput.value) {
+    h1.innerHTML = `${cityInput.value}`;
+  } else {
+    h1.innerHTML = null;
+    alert("Please type a city");
+  }
+}
+
+let cityForm = document.querySelector("#city-form");
+cityForm.addEventListener("submit", searchButton);
 
 // Local Day and Hour
 let currentDate = new Date();
@@ -80,24 +100,6 @@ function formatHour(currentDate) {
 
 let formattedHour = document.querySelector("#current-hour");
 formattedHour.innerHTML = formatHour(currentDate);
-
-// Change the city
-
-function searchButton(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#city-input");
-
-  let h1 = document.querySelector("#city");
-  if (cityInput.value) {
-    h1.innerHTML = `${cityInput.value}`;
-  } else {
-    h1.innerHTML = null;
-    alert("Please type a city");
-  }
-}
-
-let cityButton = document.querySelector("#city-form");
-cityButton.addEventListener("submit", searchButton);
 
 // Change the °C and °F
 
