@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link href="src/styles.css" rel="stylesheet" type="text/css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -35,114 +33,98 @@
       crossorigin="anonymous"
     ></script>
 
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+
     <title>Weather App Gio</title>
   </head>
 
   <body>
     <div class="Container project">
-      <div class="row">
-        <div class="col-3 card left-card">
-          <form id="city-form">
-            <div class="row">
-              <div class="col-8">
-                <input
-                  type="text"
-                  placeholder="Enter a City..."
-                  id="city-input"
-                />
-              </div>
-              <div class="col-2">
-                <button type="submit" class="btn btn-primary">Search</button>
-              </div>
-            </div>
-          </form>
+      <div class="card">
+        <form id="city-form">
+          <input type="text" placeholder="Enter a City..." id="city-input" />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
 
-          <hr />
+        <h1 id="city"></h1>
 
-          <h1 id="country">Berlin</h1>
-          <h3>Today</h3>
+        <h3>Today</h3>
 
-          <img
-            src="images/partly-cloudy-day.png"
-            alt="partly cloudy day"
-            width="150"
-          />
+        <img
+          src="images/partly-cloudy-day.png"
+          alt="partly cloudy day"
+          width="150"
+        />
+
+        <div>
+          <span class="temperature" id="temperature"></span>
+          <span class="units">
+            <a href="#" id="celsius-link">°C</a> |
+            <a href="#" id="fahrenheit-link">°F</a>
+          </span>
 
           <br />
 
-          <div class="float-left">
-            <span class="temperature" id="temperature">12</span>
-            <span>
-              <a href="#" id="celsius-link">°C</a> |
-              <a href="#" id="fahrenheit-link">°F</a>
-            </span>
-
-            <br />
-
-            <ul>
-              <li class="day" id="current-day">Thursday</li>
-              <li id="current-hour">20:20</li>
-              <li>few clowds</li>
-            </ul>
-            <ul>
-              <li>Precipitation: 0%</li>
-              <li>Humidity: "80%"</li>
-              <li>Wind: "3.13 km/h"</li>
-            </ul>
-            <br />
-          </div>
-
-          <h3>Remember to take your umbrella!</h3>
+          <ul>
+            <li class="day" id="current-day">Thursday</li>
+            <li id="current-hour">20:20</li>
+            <li id="description"></li>
+          </ul>
+          <ul>
+            <li>Precipitation: 0%</li>
+            <li id="humidity"></li>
+            <li id="wind"></li>
+          </ul>
         </div>
 
-        <div class="col-8 card left-card">
-          <h3>Week</h3>
-
-          <div class="card-group">
-            <div class="card">
-              <div class="card-header"><strong>Friday</strong></div>
-              <div class="card-body">
-                <p class="card-text">Temperature</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header"><strong>Saturday</strong></div>
-              <div class="card-body">
-                <p class="card-text">Temperature</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header"><strong>Sunday</strong></div>
-              <div class="card-body">
-                <p class="card-text">Temperature</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header"><strong>Monday</strong></div>
-              <div class="card-body">
-                <p class="card-text">Temperature</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header"><strong>Tuesday</strong></div>
-              <div class="card-body">
-                <p class="card-text">Temperature</p>
-              </div>
-            </div>
-          </div>
-          <hr />
-          <div>
-            <h3>Day</h3>
-          </div>
-        </div>
-
-        <footer>
-          <a href="https://github.com/digitaleAffen/weather-app"
-            >Open-sourse code by</a
-          >
-          <strong>Gio Lamadrid</strong>
-        </footer>
+        <h3>Remember to take your umbrella!</h3>
       </div>
+      <div class="card">
+        <h3>Week</h3>
+
+        <div class="card-group">
+          <div class="card">
+            <div class="card-header"><strong>Friday</strong></div>
+            <div class="card-body">
+              <p class="card-text">Temperature</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><strong>Saturday</strong></div>
+            <div class="card-body">
+              <p class="card-text">Temperature</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><strong>Sunday</strong></div>
+            <div class="card-body">
+              <p class="card-text">Temperature</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><strong>Monday</strong></div>
+            <div class="card-body">
+              <p class="card-text">Temperature</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><strong>Tuesday</strong></div>
+            <div class="card-body">
+              <p class="card-text">Temperature</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <a href="https://github.com/digitaleAffen/weather-app" target="_blank"
+          >Open-sourse code</a
+        >
+        by
+        <strong>Gio Lamadrid</strong>
+      </footer>
     </div>
 
     <script src="src/index.js"></script>

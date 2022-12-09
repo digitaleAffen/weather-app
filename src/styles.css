@@ -1,59 +1,65 @@
 body {
-  color: #7c7c7c;
   font-family: "Roboto", sans-serif;
 }
 
 .project {
-  border: 1px solid;
-  border-radius: 8px;
+  border: 1px solid #dadde1;
+  border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.2) 1px 5px 5px;
   display: block 0;
-  margin: 20px auto;
+  margin: 30px auto;
   padding: 20px;
-  width: 80%;
-}
-
-.left-card {
-  padding: 12px;
+  max-width: 800px;
 }
 
 .temperature {
   font-size: 48px;
-  line-height: 28px;
+  line-height: 1;
 }
 
 .day {
   font-weight: 700;
 }
 
+.units {
+  position: relative;
+  top: -22px;
+}
+
 h1 {
+  color: #878787;
+  display: block;
   font-size: 32px;
   line-height: 28px;
+  margin-bottom: 0;
+  text-align: left;
 }
 
 h3 {
   font-size: 22px;
   line-height: 28px;
+  margin-bottom: 0;
 }
 
-img {
-  /* border-radius: 20px;
+/* img { */
+/* border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.2) 1px 5px 5px;
-  padding: 15px; */
-}
+  padding: 15px; } */
 
 ul {
   font-size: 14px;
-  list-style: none;
+  box-sizing: inherit;
   padding: 0;
   text-align: left;
-  box-sizing: inherit;
 }
 
 li {
-  display: inline;
+  list-style: none;
   margin: 0;
+  font-weight: 300;
   font-size: 16px;
+  line-height: 19px;
+  text-transform: capitalize;
   padding: 0;
 }
 

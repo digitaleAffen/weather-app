@@ -1,7 +1,36 @@
 console.log("Hello Gio, you can do it!");
 
+function displayTemperature(response) {
+  console.log(response.data);
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = response.data.name;
+
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
+}
+
+let apiKey = "47197b56a0c0163cd5fa08701bd89102";
+let city = "berlin";
+let units = "metric";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+//https://api.openweathermap.org/data/2.5/weather?q=&appid=47197b56a0c0163cd5fa08701bd89102&lat=52.5139968&lon=13.4709248
+
+console.log(apiUrl);
+
+axios.get(apiUrl).then(displayTemperature);
+
 // Change the Day and Hour to the current one
 let currentDate = new Date();
+6;
 
 //Day
 
@@ -84,3 +113,5 @@ function ChangeToFahrenheit(event) {
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", ChangeToFahrenheit);
+
+console.log("Gio, you are great!");
