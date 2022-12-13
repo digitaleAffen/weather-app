@@ -17,17 +17,13 @@ body {
   cursor: default;
 }
 
-today.temperature .active:hover {
+.today-temperature .active:hover {
   text-decoration: none;
 }
 
 .temperature {
   font-size: 48px;
   line-height: 1;
-}
-
-.temperature .active:hover {
-  text-decoration: none;
 }
 
 .day {
@@ -38,6 +34,20 @@ today.temperature .active:hover {
   position: relative;
   top: -22px;
   text-decoration: none;
+}
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: #878787;
+}
+
+.forecast-day {
+  font-size: 16px;
+}
+
+.forecast-temp {
+  font-size: 13px;
 }
 
 h1 {
@@ -80,4 +90,8 @@ li {
 footer {
   padding: 15px;
   text-align: center;
+}
+
+img {
+  margin: 0 auto;
 }

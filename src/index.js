@@ -128,4 +128,42 @@ function ChangeToFahrenheit(event) {
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", ChangeToFahrenheit);
 
+forecast;
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="card-group">`;
+  let forecastDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thusday",
+    "Friday",
+  ];
+  forecastDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="card">
+            <div class="forecast-day"><strong>${day}</strong></div>
+            <img
+              src="http://openweathermap.org/img/wn/04d@2x.png"
+              alt=""
+              width="46"
+            />
+            <div class="forecast-temp">
+              <strong class="forecast-temp-max"> 18° </strong>
+              <span class="forecast-temp-min"> 12° </span>
+            </div>
+          </div>
+`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
+
 console.log("Gio, you are great!");
