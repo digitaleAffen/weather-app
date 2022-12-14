@@ -3,7 +3,7 @@ console.log("Hello Gio, you can do it!");
 // Forecast HTML
 
 function displayForecast(response) {
-  // console.log(response.data.daily);
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastDays = [
@@ -39,13 +39,11 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-displayForecast();
-
 // Forecast JS
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = `47197b56a0c0163cd5fa08701bd89102`;
+  let apiKey = "47197b56a0c0163cd5fa08701bd89102";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   // https://api.openweathermap.org/data/2.5/onecall?lat=52.5244&lon=13.4105&appid=47197b56a0c0163cd5fa08701bd89102&unitsmetric
