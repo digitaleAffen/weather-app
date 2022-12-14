@@ -183,5 +183,3 @@ function ChangeToFahrenheit(event) {
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", ChangeToFahrenheit);
-
-console.log("Gio, you are great!");
