@@ -23,7 +23,7 @@ function displayForecast(response) {
       <div class="card">
             <div class="forecast-day"><strong>${day}</strong></div>
             <img
-              src="http://openweathermap.org/img/wn/04d@2x.png"
+              src="https://openweathermap.org/img/wn/04d@2x.png"
               alt=""
               width="46"
             />
