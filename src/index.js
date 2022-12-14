@@ -3,7 +3,7 @@ console.log("Hello Gio, you can do it!");
 // Forecast HTML
 
 function displayForecast(response) {
-  console.log(response.data);
+  // console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastDays = [
@@ -23,7 +23,7 @@ function displayForecast(response) {
       <div class="card">
             <div class="forecast-day"><strong>${day}</strong></div>
             <img
-              src="https://openweathermap.org/img/wn/04d@2x.png"
+              src="http://openweathermap.org/img/wn/04d@2x.png"
               alt=""
               width="46"
             />
@@ -38,6 +38,8 @@ function displayForecast(response) {
 
   forecastElement.innerHTML = forecastHTML;
 }
+
+displayForecast();
 
 // Forecast JS
 
@@ -181,3 +183,5 @@ function ChangeToFahrenheit(event) {
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", ChangeToFahrenheit);
+
+console.log("Gio, you are great!");
