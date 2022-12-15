@@ -26,7 +26,7 @@ body {
   line-height: 1;
 }
 .today-temperature .active {
-  color: #878787;
+  color: #797979;
   cursor: default;
 }
 
@@ -107,4 +107,8 @@ footer {
 
 img {
   margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
 }

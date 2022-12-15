@@ -12,7 +12,7 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-      <div class="card">
+          <div class="card">
             <div class="forecast-day"><strong>${forecastFormatDay(
               forecastDay.dt
             )}</strong></div>
@@ -32,11 +32,11 @@ function displayForecast(response) {
               )}° </span>
             </div>
           </div>
-`;
+        `;
     }
   });
-  forecastHTML = forecastHTML + `</div>`;
 
+  forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
@@ -54,7 +54,6 @@ function getForecast(coordinates) {
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  console.log(response.data);
 
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
@@ -177,7 +176,7 @@ let celciusTemperature = null;
 
 function ChangeToCelsius(event) {
   event.preventDefault();
-  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temp = document.querySelector("#temperature");
   temp.innerHTML = Math.round(celciusTemperature);
@@ -188,8 +187,9 @@ celsiusLink.addEventListener("click", ChangeToCelsius);
 
 function ChangeToFahrenheit(event) {
   event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let temp = document.querySelector("#temperature");
-  celsiusLink.classList.add("active");
   temp.innerHTML = Math.round((celciusTemperature * 9) / 5 + 32);
 }
 
