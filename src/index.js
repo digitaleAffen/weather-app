@@ -3,36 +3,37 @@ console.log("Hello Gio, you can do it!");
 // Forecast HTML
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecastData = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastDays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thusday",
-    "Friday",
-  ];
-
   let forecastHTML = `<div class="card-group">`;
-  forecastDays.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecastData.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="card">
-            <div class="forecast-day"><strong>${day}</strong></div>
+            <div class="forecast-day"><strong>${forecastFormatDay(
+              forecastDay.dt
+            )}</strong></div>
             <img
-              src="http://openweathermap.org/img/wn/04d@2x.png"
+              src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png"
               alt=""
               width="46"
             />
             <div class="forecast-temp">
-              <strong class="forecast-temp-max"> 18° </strong>
-              <span class="forecast-temp-min"> 12° </span>
+              <strong class="forecast-temp-max">${Math.round(
+                forecastDay.temp.max
+              )}° </strong>
+              <span class="forecast-temp-min"> ${Math.round(
+                forecastDay.temp.min
+              )}° </span>
             </div>
           </div>
 `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
 
@@ -43,11 +44,10 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "47197b56a0c0163cd5fa08701bd89102";
+  let apiKey = "a43564c91a6c605aeb564c9ed02e3858";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
-  // https://api.openweathermap.org/data/2.5/onecall?lat=52.5244&lon=13.4105&appid=47197b56a0c0163cd5fa08701bd89102&unitsmetric
-  console.log(apiUrl);
+  // https://api.openweathermap.org/data/2.5/onecall?lat=52.5244&lon=13.4105&appid=a43564c91a6c605aeb564c9ed02e3858&unitsmetric
 
   axios.get(apiUrl).then(displayForecast);
 }
@@ -135,6 +135,16 @@ function formatDay(currentDate) {
 
 let formattedDay = document.querySelector("#current-day");
 formattedDay.innerHTML = formatDay(currentDate);
+
+// Forecast Day
+
+function forecastFormatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
 
 // Local Hour
 
