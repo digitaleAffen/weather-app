@@ -64,12 +64,21 @@
           </div>
         </form>
 
-        <h1 id="city">Bogota</h1>
-        <h3>Today</h3>
-        <img src="" alt="cloudy day" width="100" class="float-left" id="icon" />
-
         <div class="row">
-          <div class="col-3">
+          <div class="col-5 city">
+            <h2 id="greetings">Today in</h2>
+            <h1 id="city">Bogota</h1>
+
+            <img
+              src=""
+              alt="cloudy day"
+              width="100"
+              class="float-left"
+              id="icon"
+            />
+          </div>
+
+          <div class="col-4">
             <div class="today-temperature">
               <span class="temperature" id="temperature"></span>
 
@@ -77,21 +86,18 @@
                 <a href="#" id="celsius-link" class="active">°C</a> |
                 <a href="#" id="fahrenheit-link">°F</a>
               </span>
-
-              <br />
+              <ul>
+                <li id="feels-like"></li>
+              </ul>
             </div>
           </div>
           <div class="col-3">
             <ul>
               <li class="day" id="current-day">Thursday</li>
               <li id="current-hour">20:20</li>
-              <li id="description"></li>
-            </ul>
-          </div>
 
-          <div class="col-3">
-            <ul>
-              <li>Precipitation: 0%</li>
+              <br />
+              <li id="description"></li>
               <li id="humidity"></li>
               <li id="wind"></li>
             </ul>
@@ -99,24 +105,9 @@
         </div>
         <h3>Remember to take your umbrella!</h3>
       </div>
-      <h3>Week</h3>
-      <div class="weather-forecast" id="forecast">
-        <!-- <div class="card-group">
-          <div class="card">
-            <div class="forecast-day"><strong>Friday</strong></div>
-            <img
-              src="http://openweathermap.org/img/wn/04d@2x.png"
-              alt=""
-              width="46"
-            />
-            <div class="forecast-temp">
-              <strong class="forecast-temp-max"> 18° </strong>
-              <span class="forecast-temp-min"> 12° </span>
-            </div>
-          </div>
-          </div>
-        </div> -->
-      </div>
+      <h2 class="week">Get ready for the Week</h2>
+
+      <div class="weather-forecast" id="forecast"></div>
 
       <footer>
         <a href="https://github.com/digitaleAffen/weather-app" target="_blank"
