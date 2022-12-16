@@ -10,7 +10,7 @@ body {
   display: block 0;
   margin: 30px auto;
   padding: 20px;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .card {
@@ -40,7 +40,7 @@ body {
 }
 
 .week {
-  margin: 20px 0;
+  margin: 20px 8px;
 }
 
 .units {
@@ -63,6 +63,36 @@ body {
   font-size: 13px;
 }
 
+.btn-primary {
+  background-color: rgb(244, 108, 96);
+  border-color: rgb(244, 108, 96);
+}
+
+.btn-primary:hover {
+  background: white;
+  color: rgb(244, 108, 96);
+  border-color: rgb(244, 108, 96);
+}
+
+.btn-primary:active {
+  background: white;
+  color: rgb(244, 108, 96);
+  border-color: rgb(244, 108, 96);
+  box-shadow: rgb(244, 108, 96 /25%);
+}
+
+.btn-primary:focus {
+  background-color: rgb(244, 108, 96);
+  border-color: rgb(244, 108, 96);
+  box-shadow: rgb(244, 108, 96 /25%);
+  color: white;
+}
+
+.form-control:focus {
+  border-color: rgb(244, 108, 96);
+  box-shadow: rgb(244, 108, 96 /25%);
+}
+
 h1 {
   color: #878787;
   display: block;
@@ -82,7 +112,6 @@ h3 {
   font-size: 15px;
   line-height: 28px;
   text-align: center;
-  margin: 0 80px;
 }
 
 ul {
@@ -113,5 +142,10 @@ img {
 }
 
 a {
+  color: rgb(244, 108, 96);
   text-decoration: none;
+}
+
+a:hover {
+  color: rgb(246, 152, 144);
 }
