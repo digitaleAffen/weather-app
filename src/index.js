@@ -3,8 +3,8 @@ console.log("Hello Gio, you can do it!");
 // Forecast HTML
 
 function displayForecast(response) {
-  let forecastData = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
+  let forecastData = response.data.daily;
 
   let forecastHTML = `<div class="card-group">`;
   forecastData.forEach(function (forecastDay, index) {
@@ -71,6 +71,7 @@ function displayTemperature(response) {
   feelsLikeElement.innerHTML = `Real Feel: ${Math.round(
     response.data.main.feels_like
   )}°`;
+
   // icon
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
@@ -83,6 +84,34 @@ function displayTemperature(response) {
 
   // forecast data
   getForecast(response.data.coord);
+
+  // Update suggestion
+
+  let suggestionElement = document.querySelector("#suggestion");
+  suggestionElement.innerHTML = Math.round(celciusTemperature);
+
+  let h3 = document.querySelector("#suggestion");
+  if (celciusTemperature > 30) {
+    h3.innerHTML = `Warm 🥵 Remember to use sunscreen`;
+  } else if (celciusTemperature < 29 && celciusTemperature > 17) {
+    h3.innerHTML = `Beatiful day 🤠 Most people consider this temperature ideal.`;
+  } else if (celciusTemperature < 16 && celciusTemperature > 4) {
+    h3.innerHTML = `Cool 😊 With a light jacket or sweater you will be fine.`;
+  } else if (celciusTemperature < 16 && celciusTemperature > 4) {
+    h3.innerHTML = `It's chilly 🤔 Jacket or sweater is recommended.`;
+  } else if (celciusTemperature < 3 && celciusTemperature > -3) {
+    h3.innerHTML = `It's cold in here 🥶 Remember to wear a coat and a hat. Also consider pack your gloves and a scarf.`;
+  } else if (celciusTemperature < -4 && celciusTemperature > -12) {
+    h3.innerHTML =
+      "Brr 🥶 It's freezing in here. Coat, hat, gloves and a scarf are appropriate.";
+  } else if (celciusTemperature < -13) {
+    h3.innerHTML = `Brr 🥶 Caution advised. Limited outdoor activity recommended. Wear winter clothing that covers as much of the body as possible.`;
+  } else {
+    h3.innerHTML = "Have a nice day! 😊";
+  }
+  console.log(celciusTemperature);
+
+  //
 }
 
 // Change the city
