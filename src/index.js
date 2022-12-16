@@ -1,6 +1,6 @@
 console.log("Hello Gio, you can do it!");
 
-// Forecast HTML
+// Forecast HTML Celsius
 
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
@@ -24,12 +24,56 @@ function displayForecast(response) {
               width="46"
             />
             <div class="forecast-temp">
+              <span class="forecast-temp-min"> ${Math.round(
+                forecastDay.temp.min
+              )}° </span> |  
               <strong class="forecast-temp-max">${Math.round(
                 forecastDay.temp.max
               )}° </strong>
+            </div>
+          </div>
+        `;
+    }
+    let forecastMin = document.querySelector("#forecast-temp-min");
+    forecastMin = Math.round((forecastDay.temp.min * 9) / 5 + 32);
+
+    console.log(forecastMin);
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+// Forecast HTML Farenheit
+
+function displayForecastFarenheit(response) {
+  let forecastElement = document.querySelector("#forecast-farenheit");
+  let forecastData = response.data.daily;
+
+  let forecastHTML = `<div class="card-group">`;
+  forecastData.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+          <div class="card">
+            <div class="forecast-day"><strong>${forecastFormatDay(
+              forecastDay.dt
+            )}</strong></div>
+            <img
+              src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png"
+              alt=""
+              width="46"
+            />
+            <div class="forecast-temp">
               <span class="forecast-temp-min"> ${Math.round(
-                forecastDay.temp.min
-              )}° </span>
+                (forecastDay.temp.min * 9) / 5 + 32
+              )}° </span> |  
+              <strong class="forecast-temp-max">${Math.round(
+                (forecastDay.temp.max * 9) / 5 + 32
+              )}° </strong>
             </div>
           </div>
         `;
@@ -49,6 +93,8 @@ function getForecast(coordinates) {
   // https://api.openweathermap.org/data/2.5/onecall?lat=52.5244&lon=13.4105&appid=a43564c91a6c605aeb564c9ed02e3858&unitsmetric
 
   axios.get(apiUrl).then(displayForecast);
+
+  axios.get(apiUrl).then(displayForecastFarenheit);
 }
 
 function displayTemperature(response) {
@@ -94,7 +140,7 @@ function displayTemperature(response) {
 
   let h3 = document.querySelector("#suggestion");
   if (celciusTemperature > 30) {
-    h3.innerHTML = `Warm 🥵 Remember to use sunscreen`;
+    h3.innerHTML = `OMG It's warm 🥵 Remember to use sunscreen.`;
   } else if (celciusTemperature < 29 && celciusTemperature > 17) {
     h3.innerHTML = `Beatiful day 🤠 Most people consider this temperature ideal.`;
   } else if (celciusTemperature < 16 && celciusTemperature > 4) {
@@ -111,9 +157,6 @@ function displayTemperature(response) {
   } else {
     h3.innerHTML = "Have a nice day! 😊";
   }
-  console.log(celciusTemperature);
-
-  //
 }
 
 // Change the city
@@ -204,6 +247,7 @@ formattedHour.innerHTML = formatHour(currentDate);
 // Change the °C and °F
 
 let celciusTemperature = null;
+let forecastMin = null;
 
 function ChangeToCelsius(event) {
   event.preventDefault();
