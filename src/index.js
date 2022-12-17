@@ -34,10 +34,6 @@ function displayForecast(response) {
           </div>
         `;
     }
-    let forecastMin = document.querySelector("#forecast-temp-min");
-    forecastMin = Math.round((forecastDay.temp.min * 9) / 5 + 32);
-
-    console.log(forecastMin);
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -257,6 +253,21 @@ function ChangeToCelsius(event) {
   temp.innerHTML = Math.round(celciusTemperature);
 }
 
+function ChangeToCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temp = document.querySelector("#temperature");
+  temp.innerHTML = Math.round(celciusTemperature);
+
+  forecastCelsius.classList.remove("d-none");
+  forecastCelsius.classList.add("d-block");
+
+  forecastFahrenheit.classList.add("d-none");
+  forecastFahrenheit.classList.remove("d-block");
+}
+
+let forecastCelsius = document.querySelector("#forecast");
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", ChangeToCelsius);
 
@@ -266,7 +277,13 @@ function ChangeToFahrenheit(event) {
   fahrenheitLink.classList.add("active");
   let temp = document.querySelector("#temperature");
   temp.innerHTML = Math.round((celciusTemperature * 9) / 5 + 32);
+  forecastFahrenheit.classList.remove("d-none");
+  forecastFahrenheit.classList.add("d-block");
+
+  forecastCelsius.classList.add("d-none");
+  forecastCelsius.classList.remove("d-block");
 }
 
+let forecastFahrenheit = document.querySelector("#forecast-farenheit");
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", ChangeToFahrenheit);
