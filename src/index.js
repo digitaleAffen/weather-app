@@ -83,7 +83,7 @@ function displayForecastFarenheit(response) {
 // Forecast JS
 
 function getForecast(coordinates) {
-  let apiKey = "a43564c91a6c605aeb564c9ed02e3858";
+  let apiKey = "73a00877081bd43422bdee0f3022beb5";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   // https://api.openweathermap.org/data/2.5/onecall?lat=52.5244&lon=13.4105&appid=a43564c91a6c605aeb564c9ed02e3858&unitsmetric
